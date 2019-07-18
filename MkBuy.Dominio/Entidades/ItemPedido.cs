@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MkBuy.Dominio.Entidades
 {
-    public class ItemPedido
+    public class ItemPedido : Entidade
     {
         public int Id { get; set; }
         public int ProdutoId { get; set; }

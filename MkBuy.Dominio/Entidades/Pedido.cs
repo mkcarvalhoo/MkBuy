@@ -1,11 +1,12 @@
 ﻿using MkBuy.Dominio.ObjetoDeValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MkBuy.Dominio.Entidades
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime DataPeiddo { get; set; }
@@ -22,5 +23,10 @@ namespace MkBuy.Dominio.Entidades
 
         public ICollection<ItemPedido> ItensPedido { get; set; }
 
+        public override void Validade()
+        {
+            if (!ItensPedido.Any())
+                MensagemValidacao.Add("Critica: Item de pedido não pode estar vazio");
+        }
     }
 }
