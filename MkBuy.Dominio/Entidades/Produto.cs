@@ -10,5 +10,10 @@ namespace MkBuy.Dominio.Entidades
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
+
+        public override void Validade()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

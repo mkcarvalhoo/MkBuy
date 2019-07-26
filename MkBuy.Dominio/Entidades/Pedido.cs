@@ -25,8 +25,13 @@ namespace MkBuy.Dominio.Entidades
 
         public override void Validade()
         {
+            LimparMensagensValidacao();
+
             if (!ItensPedido.Any())
-                MensagemValidacao.Add("Critica: Item de pedido não pode estar vazio");
+                AdicionarCritica("Critica: Pedido não pode estar sem item");
+
+            if (string.IsNullOrEmpty(CEP))
+                AdicionarCritica("Critica: CEP deve estar preenchido");
         }
     }
 }
