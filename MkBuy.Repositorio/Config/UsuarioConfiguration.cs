@@ -11,7 +11,33 @@ namespace MkBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(u => u.Id); //Definido como PK no BD 
+
+            builder
+                .Property(u => u.Email)
+                .IsRequired()//Obrigatório
+                .HasMaxLength(50); //Tamanho max
+
+            builder
+                .Property(u => u.Senha)
+                .IsRequired()
+                .HasMaxLength(400);
+
+            builder
+                .Property(u => u.Nome)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            builder
+                .Property(u => u.Sobrenome)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            // Relacionamento 1 pra muitos com Pedidos
+            builder
+                .HasMany(u => u.Pedidos)
+                .WithOne(p => p.Usuario);
+
         }
     }
 }

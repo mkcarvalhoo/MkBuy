@@ -1,7 +1,7 @@
 {
   "ConnectionStrings": {
     "SqlServerConnection": "",
-    "MkBuyDB": "server=localhost;uid=root;pwd=admin;database=MkBuyDB"
+    "MkBuyDB": "server=localhost;uid=root;pwd=u726f7k4;database=MkBuyDB"
   }
 }
 

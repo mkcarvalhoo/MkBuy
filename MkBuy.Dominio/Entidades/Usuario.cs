@@ -10,7 +10,8 @@ namespace MkBuy.Dominio.Entidades
         public string Nome { get; set; }    
         public string Sobrenome { get; set; }
 
-        public ICollection<Pedido> Pedidos { get; set; }
+        // usuário pode ter muitos pedidos  - relação 1 pra muitos
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validade()
         {

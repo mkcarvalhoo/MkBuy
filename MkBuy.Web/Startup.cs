@@ -29,7 +29,8 @@ namespace MkBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connectionString = Configuration.GetConnectionString("MkBuyDB");
-            services.AddDbContext<MkBuyContexto>(option => option.UseMySql(connectionString,
+            services.AddDbContext<MkBuyContexto>(option => option.UseLazyLoadingProxies()
+                                                            .UseMySql(connectionString,
                                                                 m => m.MigrationsAssembly("MkBuy.Repositorio")));
 
             // In production, the Angular files will be served from this directory
